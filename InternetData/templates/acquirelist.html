@@ -1,0 +1,10 @@
+{% block content %}
+    <h2>Publishers</h2>
+    <ul>
+        {% for jobs in object_list %}
+        	
+        	<ul><h2>{{ jobs }}<h2></ul>
+            <a href="/data/run/{{jobs.id}}">Run Me</a> 
+        {% endfor %}
+    </ul>
+{% endblock %}
