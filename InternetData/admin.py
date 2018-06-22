@@ -1,11 +1,16 @@
 from django.contrib import admin
-from .models import DataStore,CodeRunner,LoginMeta,AcquireData
+from .models import DataStore,ScraperRunner,LoginMeta,DataJob,DataPipelines,PipelineRunner
+from .models import Project,ProjectPiplines
 from django import forms
 import json, socket
 
-admin.site.register(CodeRunner)
+admin.site.register(Project)
+admin.site.register(ProjectPiplines)
+admin.site.register(ScraperRunner)
 admin.site.register(LoginMeta)
-admin.site.register(AcquireData)
+admin.site.register(DataJob)
+admin.site.register(DataPipelines)
+admin.site.register(PipelineRunner)
 
 class DataStoreForm(forms.ModelForm):
     class Meta:

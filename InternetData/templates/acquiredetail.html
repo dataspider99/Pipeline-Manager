@@ -1,5 +1,12 @@
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+<table>
+<tr>
+	<th>Auth</th>
+	<th>Data Store</th>
+	<th>Job</th>
+<tr>
+<tr>
+	<td>{{ object.get_loginmeta }}</td>
+	<td>{{ object.get_datastore }}</td>
+	<td>{{ object.get_coderunner }}</td>
+<tr>
+</table>

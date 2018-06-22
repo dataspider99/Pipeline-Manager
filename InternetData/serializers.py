@@ -1,3 +1,6 @@
-from .models import APIData,CrawlerData,DataStore
+from .models import DataJob
 from rest_framework.serializers import ModelSerializer
-from rest_framework.mixins import 
+
+class DataJobSerializer(ModelSerializer):
+    model = DataJob
+    fields = ('keywords','coderunner','type')

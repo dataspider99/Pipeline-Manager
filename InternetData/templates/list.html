@@ -1,0 +1,9 @@
+{% block content %}
+    <h2>Data Jobs</h2>
+    <div><a href=/admin/InternetData/datajob/>Create JOB</a></div>
+    <ul>
+        {% for object in object_list %}
+            <ul><a href="{% url 'project' object.id %}">{{object.get_name}}</a></ul> 
+        {% endfor %}
+    </ul>
+{% endblock %}

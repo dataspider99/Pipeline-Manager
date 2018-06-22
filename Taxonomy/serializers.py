@@ -1,4 +1,4 @@
-from .models import Taxonomy, Keywords
+from .models import Taxonomy, Keyword
 from rest_framework import serializers 
 
 
@@ -6,7 +6,7 @@ from rest_framework import serializers
 class KeywordsSerializer(serializers.ModelSerializer):
     taxonomy = serializers.StringRelatedField(read_only=True)
     class Meta:
-        model = Keywords
+        model = Keyword
         fields = '__all__'
 
 class TaxonomySerializer(serializers.ModelSerializer):

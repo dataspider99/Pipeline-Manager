@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<div>
+	<h2>Project Name:</h2><h5>{{object.get_name}}</h5>
+</div>
+{% for datajob in object.data_jobs.all %}
+<table hight="100%" >
+  <tr>
+    <th>Keywords</th>
+    <th>Scrapers</th>
+    <th>Type</th>
+    <th>Pipelines</th>
+  </tr>
+  <tr>
+    <td>{{ datajob.keywords }}</td>
+    <td><div>{{ datajob.scraper.jobname }}<br>
+    	<a href="{% url 'run' datajob.id %}">Start Scrpaer</a>
+    	<a href="#">Status</a>
+    </div></td>
+    <td>{{ datajob.type }}</td>
+    <td></td>
+  </tr>
+</table>
+{% endfor %}
+<div>
+<h2>Pipeline</h2>{{ object.project_pipeline.name  }}
+<h2>Input Data Source</h2>
+	{{object.project_pipeline.input.unique_identity}} | {{ object.project_pipeline.input.host }} | {{ object.project_pipeline.input.json_info  }}
+<h2>Output Data</h2>
+    {{object.project_pipeline.output.unique_identity}} | {{ object.project_pipeline.output.host }} | {{ object.project_pipeline.output.json_info  }}
+<div>
+<br>
+<center>
+	<iframe src="http://s1:8090/job/{{ object.project_pipeline.pipeline_job.jobname }}" width="80%" height="600px"></iframe>
+</center>
+</div>
+</div>
+</body>
+</html>
